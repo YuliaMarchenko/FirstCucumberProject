@@ -27,3 +27,14 @@ Feature: Login
       | email   | password  |
       | test102@test.com | 123        |
       | test102@test.com | test12_TES |
+
+  @addContact
+  Scenario: Login with valid date
+    Given Navigate to Home Page
+    When Click on Login tab
+    And Enter valid data
+    And Click on login Button
+    And Click add
+    And Enter data
+    And Click save
+    Then Contact appeared

@@ -69,6 +69,31 @@ public class LoginSteps {
         Assert.assertTrue(isAlertPresent());
     }
 
+    @And("Click add")
+    public void clickAdd(){
+        click(By.xpath("//a[text()='ADD']"));
+    }
+
+    @And("Enter data")
+    public void enterData(){
+        type(By.xpath("//input[@placeholder='Name']"), "Ivan");
+        type(By.xpath("//input[@placeholder='Last Name']"), "Sidorov");
+        type(By.xpath("//input[@placeholder='Phone']"), "+495642311356");
+        type(By.xpath("//input[@placeholder='email']"), "ivan@gmail.com");
+        type(By.xpath("//input[@placeholder='Address']"), "Berlin, Mitte");
+        type(By.xpath("//input[@placeholder='description']"), "something");
+    }
+
+    @And("Click save")
+    public void clickButtonSave(){
+        click(By.xpath("//button[.='Save']"));
+    }
+
+    @Then("Contact appeared")
+    public void contactAppeared(){
+        Assert.assertTrue(isElementPresent(By.xpath("//h2[text()='Ivan']")));
+    }
+
     private void click(By locator){
         driver.findElement(locator).click();
     }
